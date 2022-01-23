@@ -1,0 +1,250 @@
+{
+    "Nest Root Module": {
+        "prefix": "nest-root-module",
+        "description": "NestJS Root Module",
+        "body": [
+            "import { Module } from '@nestjs/common';",
+            "import { ${1}Module } from './${2}.module';",
+            "",
+            "@Module({",
+            "\tmodules: [${1}Module],",
+            "})",
+            "export class ${3:Application}Module {${0}};"
+        ]
+    },
+    "Nest NestModule": {
+        "prefix": "nest-nodule",
+        "description": "NestJS NestModule",
+        "body": [
+            "import { Module, NestModule } from '@nestjs/common';",
+            "import { ${1}Module } from './${2}.module';",
+            "",
+            "@Module({",
+            "\tmodules: [${1}Module],",
+            "})",
+            "export class ${3:Application}Module {",
+            "\tconfigure() {",
+            "\t\t${0}",
+            "\t}",
+            "}"
+        ]
+    },
+    "Nest Controller": {
+        "prefix": "nest-controller",
+        "description": "NestJS Controller",
+        "body": [
+            "import { Controller, Get } from '@nestjs/common';",
+            "",
+            "@Controller('${1}')",
+            "export class ${2}Controller {",
+            "\tconstructor(){}",
+            "",
+            "\t@Get() {",
+            "\t\t${0}",
+            "\t}",
+            "}"
+        ]
+    },
+    "Nest Service": {
+        "prefix": "nest-service",
+        "description": "NestJS Service",
+        "body": [
+            "import { Injectable } from '@nestjs/common';",
+            "",
+            "@Injectable('${1}')",
+            "export class ${2}Service {",
+            "\tconstructor(){}",
+            "",
+            "\tpublic async healthCheck(): Promise<any> {",
+            "\t\t${0}",
+            "\t}",
+            "}"
+        ]
+    },
+    "Nest Transactional Service Function": {
+        "prefix": "nest-trx-service",
+        "description": "NestJS Service",
+        "body": [
+            "@Transactional()",
+            "public function(args: any): Promise<any> {",
+            "\ttry {",
+            "\t\tconst result = 0;",
+            "\t\trunOnTransactionCommit(() => {});",
+            "\t}",
+            "\tcatch (error) {",
+            "\t\trunOnTransactionRollback(() => {});",
+            "\t\tthrow error",
+            "\t}",
+            "\tfinally{",
+            "\t\trunOnTransactionComplete(() => {});",
+            "\t}",
+            "}"
+        ]
+    },
+    "Nest Dto": {
+        "prefix": "nest-dto",
+        "description": "NestJS Dto",
+        "body": [
+            "export class ${1}Dto {",
+            "\tpublic static of(",
+            "\t\tparams: Partial<${1}Dto>",
+            "\t): ${1}Dto {",
+            "\t\tconst ${2}Dto = new ${1}Dto();",
+            "\t\tObject.assign(${2}Dto, params);",
+            "\t\treturn ${2}Dto;",
+            "\t}",
+            "}"
+        ]
+    },
+    "Nest CQRS Query": {
+        "prefix": "nest-query",
+        "description": "NestJS CQRS Query",
+        "body": [
+            "import { IQuery } from '@nestjs/cqrs';",
+            "",
+            "export class ${1}Query implements IQuery {",
+            "\tconstructor(public readonly args: ${2}Dto) {}",
+            "}"
+        ]
+    },
+    "Nest CQRS Query Handler": {
+        "prefix": "nest-query-handler",
+        "description": "NestJS CQRS Query Handler",
+        "body": [
+            "import { QueryHandler, IQueryHandler } from '@nestjs/cqrs';",
+            "import { ${1}Query } from '../impl';",
+            "",
+            "@QueryHandler(${1}Query)",
+            "export class ${1}Handler implements IQueryHandler<${1}Query> {",
+            "\tconstructor() {}",
+            "",
+            "\tasync execute(command: ${1}Query) {",
+            "\t\treturn 'Hello :)';",
+            "\t}",
+            "}"
+        ]
+    },
+    "Nest CQRS Command": {
+        "prefix": "nest-command",
+        "description": "NestJS CQRS Command",
+        "body": [
+            "import { ICommand } from '@nestjs/cqrs';",
+            "",
+            "export class ${1}Command implements ICommand {",
+            "\tconstructor(public readonly args: ${2}Dto) {}",
+            "}"
+        ]
+    },
+    "Nest CQRS Command Handler": {
+        "prefix": "nest-command-handler",
+        "description": "NestJS CQRS Command Handler",
+        "body": [
+            "import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';",
+            "import { ${1}Command } from '../impl';",
+            "",
+            "@CommandHandler(${1}Command)",
+            "export class ${1}Handler implements ICommandHandler<${1}Command> {",
+            "\tconstructor() {}",
+            "",
+            "\tasync execute(command: ${1}Command) {",
+            "\t\treturn 'Hello :)';",
+            "\t}",
+            "}"
+        ]
+    },
+    "Nest TypeORM Entity": {
+        "prefix": "nest-entity",
+        "description": "NestJS TypeORM Entity",
+        "body": [
+            "import { plainToClass } from 'class-transformer';",
+            "import { Entity } from 'typeorm';",
+            "",
+            "@Entity()",
+            "export class ${1} {",
+            "",
+            "\ttoDto() {",
+            "\t\t return plainToClass(${1}Dto, this);",
+            "\t}",
+            "\tpublic static of(params: Partial<${1}>): ${1} {",
+            "\t\tconst ${2} = new ${1}();",
+            "\t\tObject.assign(${2}, params);",
+            "\t\treturn ${2};",
+            "\t}",
+            "}"
+        ]
+    },
+    "Nest TypeORM Entity Dto": {
+        "prefix": "nest-entity-dto",
+        "description": "NestJS TypeORM Entity Dto",
+        "body": [
+            "import { Exclude, Expose } from 'class-transformer';",
+            "",
+            "@Exclude()",
+            "export class ${1}Dto {",
+            "",
+            "\tpublic static of(params: Partial<${1}Dto>): ${1}Dto {",
+            "\t\tconst ${2}Dto = new ${1}Dto();",
+            "\t\tObject.assign(${2}Dto, params);",
+            "\t\treturn ${2}Dto;",
+            "\t}",
+            "}"
+        ]
+    },
+    "Nest Unit Test": {
+        "prefix": "nest-test",
+        "description": "NestJS Unit Test",
+        "body": [
+            "import { Test } from '@nestjs/testing';",
+            "import { ${1}Controller } from './${2}.controller';",
+            "import { ${1}Service } from './${2}.service';",
+            "",
+            "describe('${1}Controller', () => {",
+            "\tlet ${2}Controller: ${1}Controller;",
+            "\tlet ${2}Service: ${1}Service;",
+            "",
+            "\tbeforeEach(async () => {",
+            "\t\tconst module = await Test.createTestingModule({",
+            "\t\t\tcontrollers: [${1}Controller],",
+            "\t\t\tproviders: [${1}Service],",
+            "\t\t}).compile();",
+            "",
+            "\t\t${2}Service = module.get<${1}Service>(${1}Service);",
+            "\t\t${2}Controller = module.get<${1}Controller>(${1}Controller);",
+            "\t});",
+            "",
+            "\tdescribe('findAll', () => {",
+            "\t\tit('should return an array of users', async () => {",
+            "\t\t\tconst result = ['test'];",
+            "\t\t\tjest.spyOn(${2}Service, 'findAll').mockImplementation(() => result);",
+            "\t\t\t${0}",
+            "\t\t\texpect(await ${2}Controller.findAll()).toBe(result);",
+            "\t\t});",
+            "\t});",
+            "});"
+        ]
+    },
+    "Nest Service Unit Test": {
+        "prefix": "n-test-service",
+        "description": "NestJS Service Unit Test",
+        "body": [
+            "import { Test } from '@nestjs/testing';",
+            "import { ${1}Service } from './${2}.service';",
+            "",
+            "describe('${1} Test suite', () => {",
+            "\tlet ${2}Service: ${1}Service;",
+            "",
+            "\tbeforeEach(async () => {",
+            "\t\tconst module = await Test.createTestingModule({",
+            "\t\t\tproviders: [${1}Service],",
+            "\t\t}).compile();",
+            "",
+            "\t\t${2}Service = module.get<${1}Service>(${1}Service);",
+            "\t});",
+            "",
+            "\tit('should be defined', () => {",
+            "\t\texpect(${2}Service).toBeDefined();",
+            "\t});",
+            "});"
+        ]
+    }
+}

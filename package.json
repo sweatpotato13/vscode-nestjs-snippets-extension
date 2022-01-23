@@ -16,10 +16,10 @@
     ],
     "main": "./out/extension.js",
     "contributes": {
-        "commands": [
+        "snippets": [
             {
-                "command": "nestjs-snippets.helloWorld",
-                "title": "Hello World"
+                "language": "typescript",
+                "path": "./src/snippets.json"
             }
         ]
     },
