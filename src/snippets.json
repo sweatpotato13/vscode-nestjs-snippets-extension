@@ -13,7 +13,7 @@
         ]
     },
     "Nest NestModule": {
-        "prefix": "nest-nodule",
+        "prefix": "nest-module",
         "description": "NestJS NestModule",
         "body": [
             "import { Module, NestModule } from '@nestjs/common';",
@@ -62,8 +62,8 @@
         ]
     },
     "Nest Transactional Service Function": {
-        "prefix": "nest-trx-service",
-        "description": "NestJS Service",
+        "prefix": "nest-trx-service-function",
+        "description": "NestJS Service Function with Transactional decorator",
         "body": [
             "@Transactional()",
             "public function(args: any): Promise<any> {",
@@ -97,7 +97,7 @@
         ]
     },
     "Nest CQRS Query": {
-        "prefix": "nest-query",
+        "prefix": "nest-cqrs-query",
         "description": "NestJS CQRS Query",
         "body": [
             "import { IQuery } from '@nestjs/cqrs';",
@@ -108,7 +108,7 @@
         ]
     },
     "Nest CQRS Query Handler": {
-        "prefix": "nest-query-handler",
+        "prefix": "nest-cqrs-query-handler",
         "description": "NestJS CQRS Query Handler",
         "body": [
             "import { QueryHandler, IQueryHandler } from '@nestjs/cqrs';",
@@ -125,7 +125,7 @@
         ]
     },
     "Nest CQRS Command": {
-        "prefix": "nest-command",
+        "prefix": "nest-cqrs-command",
         "description": "NestJS CQRS Command",
         "body": [
             "import { ICommand } from '@nestjs/cqrs';",
@@ -136,7 +136,7 @@
         ]
     },
     "Nest CQRS Command Handler": {
-        "prefix": "nest-command-handler",
+        "prefix": "nest-cqrs-command-handler",
         "description": "NestJS CQRS Command Handler",
         "body": [
             "import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';",
@@ -224,7 +224,7 @@
         ]
     },
     "Nest Service Unit Test": {
-        "prefix": "n-test-service",
+        "prefix": "nest-test-service",
         "description": "NestJS Service Unit Test",
         "body": [
             "import { Test } from '@nestjs/testing';",
