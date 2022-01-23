@@ -1,11 +1,13 @@
 {
     "name": "nestjs-snippets",
     "author": "Cute_Wisp <sweatpotato13@gmail.com>",
+    "publisher": "cutewisp",
     "license": "MIT",
     "displayName": "Nestjs Snippets",
     "description": "This extension for adding snippets for nestjs in vscode",
     "version": "1.0.0",
     "repository": "https://github.com/sweatpotato13/vscode-nestjs-snippets-extension",
+    "icon": "nestjs.jpg",
     "engines": {
         "vscode": "^1.63.0"
     },
