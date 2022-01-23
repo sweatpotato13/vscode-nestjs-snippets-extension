@@ -2,7 +2,7 @@
 
 This VSCode extension is a collection of snippets for the [nestjs](https://nestjs.com/) framework.
 
-![ss](https://i.imgur.com/266Um07.mp4)
+<img src="https://user-images.githubusercontent.com/18631357/150673012-46aa4d94-91b4-448d-baa8-c208a9858557.gif">
 
 ## Features
 
