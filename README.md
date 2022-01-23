@@ -1,4 +1,4 @@
-# Nestjs-Snippets
+# VScode-Nestjs-Snippets
 
 This VSCode extension is a collection of snippets for the [nestjs](https://nestjs.com/) framework.
 
