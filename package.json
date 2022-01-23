@@ -4,17 +4,14 @@
     "license": "MIT",
     "displayName": "Nestjs Snippets",
     "description": "This extension for adding snippets for nestjs in vscode",
-    "version": "0.0.1",
+    "version": "1.0.0",
+    "repository": "https://github.com/sweatpotato13/vscode-nestjs-snippets-extension",
     "engines": {
         "vscode": "^1.63.0"
     },
     "categories": [
-        "Other"
+        "Snippets"
     ],
-    "activationEvents": [
-        "onCommand:nestjs-snippets.helloWorld"
-    ],
-    "main": "./out/extension.js",
     "contributes": {
         "snippets": [
             {
@@ -38,12 +35,7 @@
         }
     },
     "scripts": {
-        "vscode:prepublish": "yarn run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "pretest": "yarn run compile && yarn run lint",
-        "lint": "eslint src --ext ts",
-        "test": "node ./out/test/runTest.js"
+        "vscode:prepublish": ""
     },
     "devDependencies": {
         "@types/vscode": "^1.63.0",
