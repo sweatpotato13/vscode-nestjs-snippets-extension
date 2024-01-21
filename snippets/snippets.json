@@ -89,9 +89,9 @@
             "\tpublic static of(",
             "\t\tparams: Partial<${1}Dto>",
             "\t): ${1}Dto {",
-            "\t\tconst ${2}Dto = new ${1}Dto();",
-            "\t\tObject.assign(${2}Dto, params);",
-            "\t\treturn ${2}Dto;",
+            "\t\tconst ${2}dto = new ${1}Dto();",
+            "\t\tObject.assign(${2}dto, params);",
+            "\t\treturn ${2}dto;",
             "\t}",
             "}"
         ]
@@ -103,7 +103,7 @@
             "import { IQuery } from '@nestjs/cqrs';",
             "",
             "export class ${1}Query implements IQuery {",
-            "\tconstructor(public readonly args: ${2}Dto) {}",
+            "\tconstructor(public readonly args: ${2}any) {}",
             "}"
         ]
     },
@@ -119,7 +119,11 @@
             "\tconstructor() {}",
             "",
             "\tasync execute(command: ${1}Query) {",
-            "\t\treturn 'Hello :)';",
+            "\t\ttry{",
+            "\t\t\treturn 'Hello :)';",
+            "\t\t} catch(error:any) {",
+            "\t\t\tthrow error;",
+            "\t\t}",
             "\t}",
             "}"
         ]
@@ -131,7 +135,7 @@
             "import { ICommand } from '@nestjs/cqrs';",
             "",
             "export class ${1}Command implements ICommand {",
-            "\tconstructor(public readonly args: ${2}Dto) {}",
+            "\tconstructor(public readonly args: ${2}any) {}",
             "}"
         ]
     },
@@ -147,7 +151,11 @@
             "\tconstructor() {}",
             "",
             "\tasync execute(command: ${1}Command) {",
-            "\t\treturn 'Hello :)';",
+            "\t\ttry{",
+            "\t\t\treturn 'Hello :)';",
+            "\t\t} catch(error:any) {",
+            "\t\t\tthrow error;",
+            "\t\t}",
             "\t}",
             "}"
         ]
@@ -183,9 +191,9 @@
             "export class ${1}Dto {",
             "",
             "\tpublic static of(params: Partial<${1}Dto>): ${1}Dto {",
-            "\t\tconst ${2}Dto = new ${1}Dto();",
-            "\t\tObject.assign(${2}Dto, params);",
-            "\t\treturn ${2}Dto;",
+            "\t\tconst ${2}dto = new ${1}Dto();",
+            "\t\tObject.assign(${2}dto, params);",
+            "\t\treturn ${2}dto;",
             "\t}",
             "}"
         ]
